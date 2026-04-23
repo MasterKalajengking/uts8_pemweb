@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.add-btn {
+  background: #d35400;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  background: #b84300;
+}
+
+/* FILTER */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-bar select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* GRID */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.recipe-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.recipe-card h3 {
+  margin-bottom: 10px;
+  color: #c0392b;
+}
+
+.recipe-card p {
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* BIAR DESKRIPSI DI CARD GA KEPANJANGAN */
+.recipe-card p:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ACCORDION */
+.accordion {
+  margin-top: 16px;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  border: none;
+  background: #f3f3f3;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.accordion-header:hover {
+  background: #eaeaea;
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+  padding: 0 12px;
+  background: #fff;
+}
+
+.accordion-body.open {
+  max-height: 200px;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.pagination .active-page {
+  background: #d35400;
+  color: white;
+}
+
+/* FORM */
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recipe-form input,
+.recipe-form textarea,
+.recipe-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.recipe-form textarea {
+  min-height: 80px;
+}
+
+.recipe-form button {
+  width: fit-content;
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* FEEDBACK */
+.feedback {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.feedback.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.feedback.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* MODAL OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* MODAL */
+.modal-card {
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  animation: fadeIn 0.25s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #d9363e;
+}
+
+
+.modal-card ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.modal-card li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
